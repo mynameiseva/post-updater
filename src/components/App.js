@@ -64,12 +64,12 @@ class App extends Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {filteredData.map((hit, i) => 
+              {filteredData.length ? filteredData.map((hit, i) => 
                 <Row 
                   key={i} 
                   hit={hit}
                   selectHandler={() => this.props.selectItem(hit)}
-                />)}
+                />) : <TableCell>No results :(</TableCell>}
             </TableBody>
         </Table>}
       </Container>
