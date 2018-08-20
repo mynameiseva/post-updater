@@ -1,4 +1,9 @@
-import styled from 'styled-components'
+import styled, {injectGlobal} from 'styled-components'
+
+injectGlobal`
+  margin: 0;
+  padding: 0;
+`
 
 export const Container = styled.div`
   width: 1000px;
@@ -6,6 +11,6 @@ export const Container = styled.div`
 `
 
 export const Modal = styled.div`
-  width: 300px;
+  min-width: 300px;
   min-height: 400px;
 `

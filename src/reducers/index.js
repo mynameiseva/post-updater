@@ -1,9 +1,10 @@
-import { combineReducers } from 'redux'
+import {combineReducers} from 'redux'
 import {
   REQUEST_DATA,
   REQUEST_DATA_SUCCESS,
   REQUEST_DATA_ERROR,
   SELECT_ITEM,
+  CLOSE_MODAL
 } from '../actions/actions'
 
 const initialState = {
@@ -11,16 +12,16 @@ const initialState = {
   isError: false,
   data: [],
   item: {},
-  hasItem: false
+  hasItem: false,
+  isModalOpen: false
 }
 
-const dataReducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case REQUEST_DATA:
       return {
         ...state,
-        isFetching: true,
-        hasItem: false
+        isFetching: true
       }
     case REQUEST_DATA_SUCCESS: 
       return {
@@ -37,14 +38,17 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         hasItem: true,
-        item: action.item
+        item: action.item,
+        isModalOpen: true
       }
-
+    case CLOSE_MODAL:
+      return {
+        ...state,
+        isModalOpen: false
+      }
     default:
-      return {...state}
+      return { ...state }
   }
 }
 
-export default combineReducers({
-  dataReducer
-})
+export default combineReducers({reducer})

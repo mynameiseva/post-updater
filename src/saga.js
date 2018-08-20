@@ -1,7 +1,12 @@
 import axios from 'axios'
-import { call, put, takeLatest } from 'redux-saga/effects'
+import {call, put, takeLatest} from 'redux-saga/effects'
 import {delay} from 'redux-saga'
-import {requestData, requestDataError, requestDataSuccess, START_WATCHING} from './actions/actions'
+import { 
+  requestData,
+  requestDataError, 
+  requestDataSuccess, 
+  START_WATCHING} 
+  from './actions/actions'
 
 const url = 'https://hn.algolia.com/api/v1/search_by_date?tags=story'
 
