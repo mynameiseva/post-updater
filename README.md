@@ -1,5 +1,5 @@
-- [Available Scripts](#available-scripts)
-  - [npm start](#npm-start)
-  - [npm test](#npm-test)
-  - [npm run build](#npm-run-build)
-  - [npm run eject](#npm-run-eject)
+to start app u should enter this commands into your bash 
+- 1) git clone https://github.com/mynameiseva/test.git
+- 2) cd test-task
+- 3) npm install
+- 4) npm start

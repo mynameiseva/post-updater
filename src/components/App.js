@@ -50,7 +50,7 @@ class App extends Component {
                 CLOSE
               </Button>
           </Modal>}
-        {isFetching && !isError && !isModalOpen && <Spinner/>}
+        {isFetching && !isError && !isModalOpen && filteredData.length === 0 &&  <Spinner/>}
         {!isModalOpen && !isFetching && 
           <TextField
             id="name"
@@ -80,7 +80,7 @@ class App extends Component {
                   />)}
               </TableBody>
             </Table>}
-          {filteredData.length === 0 && value.length > 1 && <div>No results :(</div>}
+          {filteredData.length === 0 && value.length > 0 && <div>No results</div>}
       </Container>
     )
   }

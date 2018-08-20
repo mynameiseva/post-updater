@@ -9,7 +9,7 @@ export default class Row extends Component {
     return (
       <TableRow>
         <TableCell onClick={selectHandler}>{title}</TableCell>
-        <TableCell>{url ? <a target="_blank" href={url}>Read more</a> : 'No URL :('}</TableCell>
+        <TableCell>{url ? <a target="_blank" href={url}>Read more</a> : 'No URL'}</TableCell>
         <TableCell onClick={selectHandler}>{moment(created_at).startOf('hour').fromNow()}</TableCell>
         <TableCell onClick={selectHandler}>{author}</TableCell>
       </TableRow>
