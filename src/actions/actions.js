@@ -13,8 +13,5 @@ export const startWatcher = () => ({type: START_WATCHING})
 export const SELECT_ITEM = 'SELECT_ITEM'
 export const selectItem = item => ({type: SELECT_ITEM, item})
 
-export const OPEN_MODAL = 'OPEN_MODAL'
-export const openModal = () => ({type: OPEN_MODAL})
-
 export const CLOSE_MODAL = 'CLOSE_MODAL'
 export const closeModal = () => ({type: CLOSE_MODAL})
