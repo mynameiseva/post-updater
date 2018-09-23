@@ -1,5 +1,7 @@
 import styled, {injectGlobal} from 'styled-components'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 
 injectGlobal`
  * {
@@ -29,3 +31,15 @@ export const Spinner = styled(CircularProgress).attrs({
     left: 50%;
   }
 `
+
+export const StyledTextField = styled(TextField).attrs({
+  id: 'name',
+  label: 'Search',
+  placeholder: 'Search what u want',
+  margin: 'normal'
+})``
+
+export const StyledButton = styled(Button).attrs({
+  variant: 'contained',
+  color: 'secondary'
+})``
