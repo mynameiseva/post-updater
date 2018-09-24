@@ -7,6 +7,7 @@ import {
   CLOSE_MODAL
 } from '../actions/actions'
 
+
 const initialState = {
   isFetching: true,
   isError: false,

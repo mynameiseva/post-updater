@@ -21,7 +21,7 @@ function* mainSaga() {
 
 function* getData() {
   while (true) {
-     yield put(requestData())
+    yield put(requestData())
     try {
       const data = yield call(loadData, url)
       yield put(requestDataSuccess(data))

@@ -6,26 +6,24 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Row from './Row'
 
-export default ({ data, selectItem }) => {
-  return (
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>Title</TableCell>
-          <TableCell>URL</TableCell>
-          <TableCell>Created at</TableCell>
-          <TableCell>Autor</TableCell>
-        </TableRow>
-      </TableHead >
-      <TableBody>
-        {data.map((hit, i) =>
-          <Row
-            key={i}
-            {...hit}
-            selectHandler={() => selectItem(hit)}
-          />)
-        }
-      </TableBody>
-    </Table>
-  )
-}
+export default ({ data, selectItem }) => (
+  <Table>
+    <TableHead>
+      <TableRow>
+        <TableCell>Title</TableCell>
+        <TableCell>URL</TableCell>
+        <TableCell>Created at</TableCell>
+        <TableCell>Autor</TableCell>
+      </TableRow>
+    </TableHead >
+    <TableBody>
+      {data.map((hit, i) =>
+        <Row
+          key={i}
+          {...hit}
+          selectHandler={() => selectItem(hit)}
+        />)
+      }
+    </TableBody>
+  </Table>
+)

@@ -5,6 +5,7 @@ import { startWatcher, selectItem, closeModal } from '../actions/actions'
 import { Modal, Container, StyledTextField, StyledButton, Spinner } from './Style'
 import { toLower, contains, filter, sort, descend, ascend, compose, prop } from 'ramda'
 import ContentTable from './ContentTable'
+import {compose, withHandlers} from 'recompose'
 
 class App extends Component {
   constructor(props) {
@@ -29,16 +30,16 @@ class App extends Component {
     return false
   }
 
-  handleSearchValue = e => 
-    this.setState({ searchValue: e.target.value })
+  handleSearchValue = e =>
+    this.setState({ searchValue: toLower(e.target.value) })
 
   render() {
     const { data, isFetching, isError, item, hasItem, isModalOpen } = this.props.list
     const { searchValue } = this.state
+
     const filterByInput = ({ title }) => contains(toLower(searchValue), toLower(title))
     const filteredData = filter(filterByInput, data)
     const sorted = sort(ascend(compose(toLower, prop('author'))))
-    console.log(sorted(filteredData).map(i => i.author))
 
     return (
       <Container>
@@ -46,7 +47,7 @@ class App extends Component {
           <Modal>
             <ReactJson src={item} />
             <StyledButton
-              onClick={() => this.props.closeModal()}>
+              onClick={this.props.closeModal}>
               CLOSE
             </StyledButton>
           </Modal>}
@@ -56,12 +57,11 @@ class App extends Component {
             value={searchValue}
             onChange={this.handleSearchValue}
           />}
-        {!isFetching && !isError &&
-          !isModalOpen && filteredData.length > 0 &&
-            <ContentTable
-              data={filteredData}
-              selectItem={this.props.selectItem}  
-            />}
+        {!isFetching && !isError && !isModalOpen && filteredData.length > 0 &&
+          <ContentTable
+            data={(filteredData)}
+            selectItem={this.props.selectItem}
+          />}
         {filteredData.length === 0 && searchValue.length > 0 && <div>No results</div>}
       </Container>
     )
